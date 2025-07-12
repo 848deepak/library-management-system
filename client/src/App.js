@@ -21,7 +21,7 @@ const INITIAL_BOOKS = [
   { id: 16, title: "Lord of the Rings", author: "J.R.R. Tolkien", isbn: "978-0-544-00341-5", year: 1954, category: "Fantasy", is_available: true, rating: 4.8, borrowed_by: null, borrowed_by_name: null },
   { id: 17, title: "The Hobbit", author: "J.R.R. Tolkien", isbn: "978-0-547-92822-7", year: 1937, category: "Fantasy", is_available: true, rating: 4.6, borrowed_by: null, borrowed_by_name: null },
   { id: 18, title: "Python Crash Course", author: "Eric Matthes", isbn: "978-1-59327-928-8", year: 2019, category: "Programming", is_available: true, rating: 4.5, borrowed_by: null, borrowed_by_name: null },
-  { id: 19, title: "JavaScript: The Good Parts", author: "Douglas Crockford", isbn: "978-0-596-51774-8", year: 2008, category: "Programming", is_available: true, rating: 4.2, borrowed_by: null, borrowed_by_name: null },
+  { id: 19, title: "JavaScript - The Good Parts", author: "Douglas Crockford", isbn: "978-0-596-51774-8", year: 2008, category: "Programming", is_available: true, rating: 4.2, borrowed_by: null, borrowed_by_name: null },
   { id: 20, title: "You Don't Know JS", author: "Kyle Simpson", isbn: "978-1-491-92415-0", year: 2014, category: "Programming", is_available: true, rating: 4.7, borrowed_by: null, borrowed_by_name: null }
 ];
 
@@ -62,21 +62,7 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    filterBooks();
-  }, [searchTerm, searchType, books]);
-
-  useEffect(() => {
-    // Save to localStorage whenever data changes
-    if (books.length > 0) {
-      localStorage.setItem('libraryBooks', JSON.stringify(books));
-    }
-    if (students.length > 0) {
-      localStorage.setItem('libraryStudents', JSON.stringify(students));
-    }
-  }, [books, students]);
-
-  const filterBooks = () => {
+  const filterBooks = React.useCallback(() => {
     if (!searchTerm.trim()) {
       setFilteredBooks(books);
       return;
@@ -96,7 +82,21 @@ function App() {
       }
     });
     setFilteredBooks(filtered);
-  };
+  }, [searchTerm, searchType, books]);
+
+  useEffect(() => {
+    filterBooks();
+  }, [filterBooks]);
+
+  useEffect(() => {
+    // Save to localStorage whenever data changes
+    if (books.length > 0) {
+      localStorage.setItem('libraryBooks', JSON.stringify(books));
+    }
+    if (students.length > 0) {
+      localStorage.setItem('libraryStudents', JSON.stringify(students));
+    }
+  }, [books, students]);
 
   const handleLogin = (credentials) => {
     if (credentials.type === 'student') {
