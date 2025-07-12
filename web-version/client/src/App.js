@@ -3,7 +3,6 @@ import './App.css';
 
 function App() {
   const [currentView, setCurrentView] = useState('login');
-  const [userType, setUserType] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [books, setBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,7 +57,6 @@ function App() {
         if (response.ok) {
           const userData = await response.json();
           setCurrentUser(userData);
-          setUserType('student');
           setCurrentView('student');
         } else {
           const error = await response.json();
@@ -76,7 +74,6 @@ function App() {
         });
         
         if (response.ok) {
-          setUserType('admin');
           setCurrentView('admin');
         } else {
           alert('Invalid admin password');
@@ -89,7 +86,6 @@ function App() {
 
   const handleLogout = () => {
     setCurrentUser(null);
-    setUserType(null);
     setCurrentView('login');
   };
 
