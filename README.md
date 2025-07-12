@@ -100,6 +100,16 @@ A modern web-based library management system built with React frontend and Expre
 4. Configure run command: `npm start`
 5. Deploy
 
+## 🚀 Live Demo
+
+### Web Version (Modern React App)
+- **Railway**: [Coming Soon - Deployment in Progress]
+- **Vercel**: [https://library-management-system-deepak.vercel.app](https://library-management-system-deepak.vercel.app)
+
+The web version demonstrates all original java features in a modern, responsive web interface.
+
+---
+
 ## Environment Variables
 
 - `PORT`: Server port (default: 3000)
