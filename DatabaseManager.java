@@ -678,4 +678,27 @@ public class DatabaseManager {
     public GamificationSystem getGamificationSystem() {
         return gamificationSystem;
     }
-} 
+    
+    /**
+     * Gets the borrower UID for a given book ISBN
+     * @param isbn The ISBN of the book
+     * @return The UID of the student who borrowed the book, or null if not borrowed
+     */
+    public String getBorrowerUID(String isbn) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                "SELECT borrower_uid FROM books WHERE isbn = ?"
+            );
+            statement.setString(1, isbn);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getString("borrower_uid");
+            }
+            return null;
+        } catch (SQLException e) {
+            System.err.println("Error getting borrower UID for book: " + e.getMessage());
+            return null;
+        }
+    }
+}

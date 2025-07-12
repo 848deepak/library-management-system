@@ -98,6 +98,29 @@ public class Book {
         this.rating = 0.0;
         this.ratingCount = 0;
     }
+    
+    /**
+     * Complete constructor with all parameters including rating and status
+     * @param isbn The ISBN number of the book
+     * @param title The title of the book
+     * @param author The author of the book
+     * @param publicationYear The year the book was published
+     * @param category The category/genre of the book
+     * @param rating The current rating of the book
+     * @param status The status of the book (Available/Borrowed)
+     */
+    public Book(String isbn, String title, String author, int publicationYear, String category, double rating, String status) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+        this.category = category;
+        this.rating = rating;
+        this.ratingCount = rating > 0 ? 1 : 0; // Assume at least one rating if rating > 0
+        this.isAvailable = "Available".equals(status);
+        this.borrowerName = null;
+        this.borrowerUID = null;
+    }
 
     // Getter methods to access private fields
     public String getTitle() {
@@ -244,4 +267,28 @@ public class Book {
                ", Category: " + category + ratingInfo + ", ISBN: " + isbn + 
                ", Status: " + status;
     }
-} 
+    
+    /**
+     * Gets the status of the book (Available or Borrowed)
+     * @return String representing the current status
+     */
+    public String getStatus() {
+        return isAvailable ? "Available" : "Borrowed";
+    }
+    
+    /**
+     * Gets the ISBN (alternative method name for compatibility)
+     * @return The ISBN number of the book
+     */
+    public String getISBN() {
+        return isbn;
+    }
+    
+    /**
+     * Gets the publication year (alternative method name for compatibility)
+     * @return The publication year of the book
+     */
+    public int getYear() {
+        return publicationYear;
+    }
+}
