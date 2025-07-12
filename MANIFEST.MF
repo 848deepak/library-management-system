@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: LibraryManagementSystem
+Class-Path: sqlite-jdbc-3.45.0.0.jar slf4j-api-2.0.9.jar slf4j-simple-2.0.9.jar
+Created-By: Deepak Pandey - Chandigarh University
+Implementation-Title: Library Management System
+Implementation-Version: 1.0
+Implementation-Vendor: Deepak Pandey
