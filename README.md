@@ -19,12 +19,31 @@ This repository contains **two implementations** of the same Library Management 
 - **Type**: Desktop GUI Application
 - **Purpose**: Academic lab assignment
 - **Features**: Complete library management with advanced GUI
+- **Download**: [LibraryManagementSystem-Standalone.jar](https://github.com/848deepak/library-management-system/raw/main/LibraryManagementSystem-Standalone.jar)
 
 ### 2. 🌐 **Modern Web Application** (Bonus Implementation)
 - **Technology**: React.js + Node.js + Express + SQLite
 - **Type**: Full-stack Web Application
 - **Purpose**: Showcase and deployment
 - **Features**: Same functionality with modern web interface
+- **Live Demo**: [https://library-management-system-git-main-deepaks-projects-65bf3b81.vercel.app](https://library-management-system-git-main-deepaks-projects-65bf3b81.vercel.app)
+
+---
+
+## 🚀 Quick Access
+
+### 📱 **Try the Web App (Live Demo)**
+👉 **[Open Library Management System](https://library-management-system-git-main-deepaks-projects-65bf3b81.vercel.app)**
+
+**Demo Credentials:**
+- **Student Login**: `student1` / `password`
+- **Admin Login**: `admin` / `admin123`
+
+### 💻 **Download Desktop App (JAR)**
+👉 **[Download LibraryManagementSystem-Standalone.jar](https://github.com/848deepak/library-management-system/raw/main/LibraryManagementSystem-Standalone.jar)**
+- Requires Java 8+
+- Cross-platform (Windows, Mac, Linux)
+- 13MB standalone executable
 
 ---
 
@@ -301,4 +320,4 @@ To view your achievements:
 
 To check your ranking:
 1. Log in as a student
-2. Click the "Leaderboard" button in the Gamification section 
+2. Click the "Leaderboard" button in the Gamification section
