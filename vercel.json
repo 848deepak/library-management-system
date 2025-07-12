@@ -19,21 +19,11 @@
       "dest": "/server.js"
     },
     {
-      "src": "/static/(.*)",
-      "dest": "/client/build/static/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/client/build/index.html"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"
+      "dest": "/client/build/index.html"
     }
-  ],
-  "functions": {
-    "server.js": {
-      "includeFiles": "library.db"
-    }
-  }
+  ]
 }
