@@ -2,15 +2,15 @@
   "version": 2,
   "builds": [
     {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
       }
-    },
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -19,8 +19,21 @@
       "dest": "/server.js"
     },
     {
+      "src": "/static/(.*)",
+      "dest": "/client/build/static/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/client/build/index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/client/build/$1"
     }
-  ]
+  ],
+  "functions": {
+    "server.js": {
+      "includeFiles": "library.db"
+    }
+  }
 }
